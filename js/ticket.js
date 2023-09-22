@@ -38,7 +38,7 @@ let qr = QRCreator(textQr,
         mask: 3,
         image: 'png',
         modsize: 4,
-        margin: 0
+        margin: 2
     });
 const content = (qrcode) => {
     return qrcode.error ?
@@ -51,3 +51,4 @@ qrCanvas.style.padding = "5px";
 qrCanvas.style.background = "white";
 div.appendChild(qrCanvas);  // заносим qr в div
 wrap.insertBefore(div, childElement.nextSibling);  // после 3 элемента вставляем блок div с qr
+qr.download();

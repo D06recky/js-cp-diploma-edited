@@ -51,4 +51,3 @@ qrCanvas.style.padding = "5px";
 qrCanvas.style.background = "white";
 div.appendChild(qrCanvas);  // заносим qr в div
 wrap.insertBefore(div, childElement.nextSibling);  // после 3 элемента вставляем блок div с qr
-qr.download();

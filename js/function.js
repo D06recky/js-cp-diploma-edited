@@ -5,40 +5,10 @@ date.setDate(date.getDate() - 1);
 days.forEach(element => {  // дата на следующие дни
   date.setDate(date.getDate() + 1);
   element.children[1].textContent = date.getDate();
-  switch (Number(date.getDay())) {
-    case 1: {
-      element.children[0].textContent = "Пн";
-      break;
-    }
-    case 2: {
-      element.children[0].textContent = "Вт";
-      break;
-    }
-    case 3: {
-      element.children[0].textContent = "Ср";
-      break;
-    }
-    case 4: {
-      element.children[0].textContent = "Чт";
-      break;
-    }
-    case 5: {
-      element.children[0].textContent = "Пт";
-      break;
-    }
-    case 6: {
-      element.children[0].textContent = "Сб";
-      element.classList.add("page-nav__day_weekend");
-      break;
-    }
-    case 0: {
-      element.children[0].textContent = "Вс";
-      element.classList.add("page-nav__day_weekend");
-      break;
-    }
-    default:
-      break;
-  }
+  const currentDay = date.getDay();
+  const week = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];  // объявляем массив дней недели
+  element.children[0].textContent = week[Number(currentDay)];  // получаем строковое представление дней недели
+  if (currentDay === 6 || currentDay === 0) element.classList.add("page-nav__day_weekend");  // проверяем выходные дни и выделяем красным
 })
 
 let currentDate = new Date();  // текущая дата
